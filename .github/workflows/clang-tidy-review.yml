@@ -49,6 +49,7 @@ jobs:
             eval "$(micromamba shell hook -s posix)" && 
             micromamba create -n HIGGSANALYSIS-COMBINED-LIMIT -y --log-level warning -f $GITHUB_WORKSPACE/conda_env.yml && 
             micromamba activate HIGGSANALYSIS-COMBINED-LIMIT && 
+            bash set_conda_env_vars.sh && 
             cmake . -B build -DINSTALL_PYTHON=FALSE -DCMAKE_EXPORT_COMPILE_COMMANDS=ON || true
 
       - name: Upload artifacts
