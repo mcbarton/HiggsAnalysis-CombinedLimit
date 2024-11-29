@@ -35,6 +35,7 @@ jobs:
         id: review
         with:
           build_dir: build
+          apt_packages: cmake,libxml2,libxml2-dev,libtinfo-dev,zlib1g-dev,libzstd-dev
           split_workflow: true
           config_file: .clang-tidy
           cmake_command: >
