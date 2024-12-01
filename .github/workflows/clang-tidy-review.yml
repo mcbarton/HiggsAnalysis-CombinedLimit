@@ -46,8 +46,8 @@ jobs:
             mv ./micromamba-linux-64 ./micromamba && 
             chmod a+x ./micromamba && 
             export PATH="$PWD:$PATH" && 
-            sudo apt-get remove -y gcc-11 && 
-            sudo apt-get remove -y gfortran-11 && 
+            apt-get remove -y gcc-11 && 
+            apt-get remove -y gfortran-11 && 
             eval "$(micromamba shell hook -s posix)" && 
             micromamba create -n clang-tidy-review -y --log-level warning -f $GITHUB_WORKSPACE/conda_env.yml && 
             micromamba activate clang-tidy-review && 
