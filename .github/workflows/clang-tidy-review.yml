@@ -48,9 +48,9 @@ jobs:
             export PATH="$PWD:$PATH" && 
             eval "$(micromamba shell hook -s posix)" && 
             micromamba create -n clang-tidy-review -y --log-level warning -f $GITHUB_WORKSPACE/conda_env.yml && 
-            micromamba env config vars set PATH=${PATH}:${PWD}/build/bin && 
-            micromamba env config vars set LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${PWD}/build/lib && 
-            micromamba env config vars set PYTHONPATH=${PYTHONPATH}:${PWD}/build/lib/python && 
+            export PATH=${PATH}:${PWD}/build/bin && 
+            export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${PWD}/build/lib && 
+            export PYTHONPATH=${PYTHONPATH}:${PWD}/build/lib/python && 
             micromamba run -n clang-tidy-review cmake . -B build -DINSTALL_PYTHON=FALSE -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
       - name: Upload artifacts
