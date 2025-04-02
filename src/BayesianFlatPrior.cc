@@ -14,6 +14,7 @@
 #include <stdexcept>
 #include <iostream>
 
+
 using namespace RooStats;
 
 int BayesianFlatPrior::maxDim_ = 4;
